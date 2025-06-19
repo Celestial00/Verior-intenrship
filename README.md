@@ -1,4 +1,4 @@
-# 🚀 Internship Task Repository
+#  Internship Task Repository
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](#contributing)
