@@ -1,0 +1,175 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #fff;
+  color: #222;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background-color: white;
+  color: black;
+  border-bottom: 1px solid #eee;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.logo:hover {
+  color: orange;
+}
+
+.nav-links {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  list-style: none;
+}
+
+.nav-links a:hover {
+  color: orange;
+}
+
+.nav-links a {
+  color: black;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.btn {
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 5px;
+
+  transition: all 0.3s;
+}
+
+.btn-black {
+  background-color: black;
+  color: white;
+  border: 2px solid black;
+}
+
+.btn-black:hover {
+  background-color: orange;
+  color: black;
+}
+
+.hero {
+  padding: 60px 50px;
+}
+
+.hero-container.horizontal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.hero-left img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 20px;
+  border: 5px solid orange;
+}
+
+.hero span {
+  color: orange;
+}
+
+.hero-right {
+  flex: 1;
+  max-width: 600px;
+}
+
+.hero-right h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.hero-right p {
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.btn-orange {
+  background-color: orange;
+  color: black;
+  border: none;
+}
+
+.btn-orange:hover {
+  background-color: black;
+  color: white;
+}
+
+.btn-outline {
+  border: 2px solid orange;
+  color: orange;
+  background-color: transparent;
+}
+
+.btn-outline:hover {
+  background-color: orange;
+  color: black;
+}
+
+/* Info Section */
+.info-section {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 50px;
+  gap: 30px;
+  background-color: #fdf4e3;
+}
+
+.info-card {
+  background-color: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 45%;
+  min-width: 300px;
+  border-left: 6px solid orange;
+}
+
+.info-card h2 {
+  color: black;
+  margin-bottom: 20px;
+}
+
+.info-card ul {
+  list-style-type: square;
+  padding-left: 20px;
+}
+
+.info-card ol {
+  padding-left: 20px;
+}
+
+.info-card li {
+  margin-bottom: 10px;
+  color: #333;
+}
