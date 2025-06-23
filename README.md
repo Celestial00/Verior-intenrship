@@ -7,3 +7,7 @@
 > This repository contains tasks, assignments, and projects completed during my internship at **verior**. It showcases my abilities, technical growth, and the practical application of knowledge across various tools and technologies.
 
 ---
+
+To Check Any Of Task Live Just Replace The Date In URL To Desired Task It will be the live url to that task.
+
+<h1>https://celestial00.github.io/Verior-intenrship/SheerazAli_23_june/index.html</h1>
