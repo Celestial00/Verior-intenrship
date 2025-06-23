@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter with Dark/Light Mode</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="title">Counter</div>
+      <button class="toggle-btn" onclick="toggleMode()" id="modeToggle">
+        🌞
+      </button>
+    </nav>
+
+    <main class="main">
+      <div class="counter" id="counterValue">0</div>
+      <div class="btn-group">
+        <button class="counter-btn" onclick="changeCounter(1)">▲</button>
+        <button class="counter-btn" onclick="changeCounter(-1)">▼</button>
+      </div>
+    </main>
+
+    <script>
+      let count = 0;
+      let isDark = false;
+
+      function changeCounter(val) {
+        count += val;
+        document.getElementById("counterValue").textContent = count;
+      }
+
+      function toggleMode() {
+        document.body.classList.toggle("dark-mode");
+        isDark = !isDark;
+        document.getElementById("modeToggle").textContent = isDark
+          ? "🌙"
+          : "🌞";
+      }
+    </script>
+  </body>
+</html>

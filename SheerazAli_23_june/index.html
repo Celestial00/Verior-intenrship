@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sheeraz Weather App</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="title">Sheeraz Weather App</div>
+      <button class="update-btn" onclick="getWeather()">Get Updates</button>
+    </header>
+
+    <div class="main">
+      <select id="city">
+        <option value="Hyderabad">Hyderabad</option>
+        <option value="Karachi">Karachi</option>
+        <option value="Lahore">Lahore</option>
+      </select>
+
+      <button class="search-btn" onclick="getWeather()">Search Weather</button>
+
+      <p id="weatherResult">Weather info will appear here.</p>
+    </div>
+
+    <script>
+      async function getWeather() {
+        const city = document.getElementById("city").value;
+        const apiKey = "9be24af8016c40c3add103431252306";
+        const url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
+
+        try {
+          const response = await fetch(url);
+          const data = await response.json();
+
+          if (data && data.location) {
+            const resultText = `
+            Weather in ${data.location.name}, ${data.location.country}:
+            ${data.current.condition.text},
+            Temp: ${data.current.temp_c}°C,
+            Feels Like: ${data.current.feelslike_c}°C,
+            Wind: ${data.current.wind_kph} kph
+          `;
+            document.getElementById("weatherResult").textContent = resultText;
+          } else {
+            document.getElementById("weatherResult").textContent =
+              "City not found.";
+          }
+        } catch (error) {
+          document.getElementById("weatherResult").textContent =
+            "Error fetching weather data.";
+          console.error(error);
+        }
+      }
+    </script>
+  </body>
+</html>
