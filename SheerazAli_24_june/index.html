@@ -75,6 +75,10 @@
         savedTodos.push(todo);
         localStorage.setItem("todos", JSON.stringify(savedTodos));
       }
+
+      window.onload = function () {
+        loadTodos();
+      };
     </script>
   </body>
 </html>
