@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List App</title>
+    <link rel="stylesheet" href="./styles/index.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav>
+      <div class="logo">Sheeraz Todos</div>
+      <div class="nav-links">
+        <a href="/">Todo-list</a>
+        <a href="./pages/eco.html">Ecommerce Filter</a>
+        <a href="./pages/mov.html">Movie Rating</a>
+      </div>
+    </nav>
+
+    <div class="todo-container" id="todo">
+      <h2>My Todo List</h2>
+      <div class="todo-input-section">
+        <input type="text" id="todoInput" placeholder="Enter a new task..." />
+        <button onclick="addTodo()">Add</button>
+      </div>
+      <ul id="todoList"></ul>
+    </div>
+
+    <script>
+      const input = document.getElementById("todoInput");
+      const todoList = document.getElementById("todoList");
+
+      function loadTodos() {
+        const savedTodos = JSON.parse(localStorage.getItem("todos")) || [];
+        savedTodos.forEach((todo) => addTodoToDOM(todo));
+      }
+
+      function addTodo() {
+        const value = input.value.trim();
+        if (value === "") return;
+
+        const newTodo = { text: value, id: Date.now() };
+        addTodoToDOM(newTodo);
+        saveTodo(newTodo);
+        input.value = "";
+      }
+
+      function addTodoToDOM(todo) {
+        const li = document.createElement("li");
+        li.setAttribute("data-id", todo.id);
+        li.innerHTML = `
+      <span>${todo.text}</span>
+      <button class="delete-btn" onclick="deleteTodo(${todo.id})">Delete</button>
+    `;
+        todoList.appendChild(li);
+      }
+
+      function deleteTodo(id) {
+        const item = document.querySelector(`li[data-id='${id}']`);
+        if (item) item.remove();
+
+        const savedTodos = JSON.parse(localStorage.getItem("todos")) || [];
+        const updatedTodos = savedTodos.filter((todo) => todo.id !== id);
+        localStorage.setItem("todos", JSON.stringify(updatedTodos));
+      }
+
+      function saveTodo(todo) {
+        const savedTodos = JSON.parse(localStorage.getItem("todos")) || [];
+        savedTodos.push(todo);
+        localStorage.setItem("todos", JSON.stringify(savedTodos));
+      }
+    </script>
+  </body>
+</html>

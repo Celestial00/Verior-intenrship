@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #f4f4f4;
+}
+
+.ecommerce-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+
+  border-radius: 12px;
+
+}
+
+.ecommerce-container h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.ecommerce-container select {
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+#productList {
+  margin-top: 1.5rem;
+}
+
+#productList .product {
+  border-bottom: 1px solid #ccc;
+  padding: 0.8rem 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+#productList .product:last-child {
+  border-bottom: none;
+}

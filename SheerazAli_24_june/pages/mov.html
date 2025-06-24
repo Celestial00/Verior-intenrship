@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Rating</title>
+    <link rel="stylesheet" href="../styles/index.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+   
+  </head>
+  <body>
+    <nav>
+      <div class="logo">Sheeraz Todos</div>
+      <div class="nav-links">
+        <a href="../index.html">Todo-list</a>
+        <a href="./eco.html">Ecommerce Filter</a>
+        <a href="./mov.html">Movie Rating</a>
+      </div>
+    </nav>
+
+    <div class="todo-container" id="movie">
+      <h2>Search Movies</h2>
+      <div class="todo-input-section">
+        <input type="text" id="movieInput" placeholder="Enter movie title..." />
+        <button onclick="searchMovies()">Search</button>
+      </div>
+      <div id="movieResults"></div>
+    </div>
+
+    <script>
+      const API_KEY = "b7fe2c24f174676b490b42de62837330"; 
+
+      async function searchMovies() {
+        const query = document.getElementById("movieInput").value.trim();
+        if (!query) return;
+
+        const url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${encodeURIComponent(query)}`;
+
+        const res = await fetch(url);
+        const data = await res.json();
+        const results = data.results;
+
+        const container = document.getElementById("movieResults");
+        container.innerHTML = "";
+
+        if (results.length === 0) {
+          container.innerHTML = `<p>No movies found for "<strong>${query}</strong>".</p>`;
+          return;
+        }
+
+        results.forEach((movie) => {
+          const card = document.createElement("div");
+          card.className = "movie-card";
+          card.innerHTML = `
+            <img class='mov-img' src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}" 
+                 onerror="this.src='https://via.placeholder.com/200x300?text=No+Image';">
+            <h4>${movie.title}</h4>
+            <span>Rating: ${movie.vote_average || "N/A"}/10</span>
+          `;
+          container.appendChild(card);
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ecommerce Filter</title>
+    <link rel="stylesheet" href="../styles/index.css" />
+    <link rel="stylesheet" href="../styles/eco.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav>
+      <div class="logo">Sheeraz Todos</div>
+      <div class="nav-links">
+        <a href="../index.html">Todo-list</a>
+        <a href="./eco.html">Ecommerce Filter</a>
+        <a href="./mov.html">Movie Rating</a>
+      </div>
+    </nav>
+
+    <div class="ecommerce-container">
+      <h2>Product Filter</h2>
+      <label for="priceRange">Filter by Price:</label>
+      <select id="priceRange" onchange="filterProducts()">
+        <option value="all">All</option>
+        <option value="0-50">Under $50</option>
+        <option value="50-100">$50 to $100</option>
+        <option value="100-1000">Above $100</option>
+      </select>
+      <div id="productList"></div>
+    </div>
+
+    <script>
+      const products = [
+        { name: "Shoes", price: 40 },
+        { name: "Watch", price: 90 },
+        { name: "Laptop", price: 700 },
+        { name: "Backpack", price: 35 },
+        { name: "Headphones", price: 120 },
+      ];
+
+      function displayProducts(data) {
+        const list = document.getElementById("productList");
+        list.innerHTML = "";
+        data.forEach((item) => {
+          const div = document.createElement("div");
+          div.className = "product";
+          div.textContent = `${item.name} - $${item.price}`;
+          list.appendChild(div);
+        });
+      }
+
+      function filterProducts() {
+        const value = document.getElementById("priceRange").value;
+        let filtered;
+
+        if (value === "all") {
+          filtered = products;
+        } else {
+          const [min, max] = value.split("-").map(Number);
+          filtered = products.filter(
+            (p) => p.price >= min && (max ? p.price <= max : true)
+          );
+        }
+
+        displayProducts(filtered);
+      }
+
+      window.addEventListener("load", () => {
+        displayProducts(products);
+      });
+    </script>
+  </body>
+</html>
