@@ -30,7 +30,6 @@
     </div>
 
     <script>
-      const input = document.getElementById("todoInput");
       const todoList = document.getElementById("todoList");
 
       function loadTodos() {
@@ -39,6 +38,7 @@
       }
 
       function addTodo() {
+        const input = document.getElementById("todoInput");
         const value = input.value.trim();
         if (!value) {
           alert("cannot enter a empty field ");
