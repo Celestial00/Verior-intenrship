@@ -40,7 +40,7 @@
 
       function addTodo() {
         const value = input.value.trim();
-        if (value === "") {
+        if (!value) {
           alert("cannot enter a empty field ");
           return;
         }
