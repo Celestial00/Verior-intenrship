@@ -40,7 +40,10 @@
 
       function addTodo() {
         const value = input.value.trim();
-        if (value === "") return;
+        if (value === "") {
+          alert("cannot enter a empty field ");
+          return;
+        }
 
         const newTodo = { text: value, id: Date.now() };
         addTodoToDOM(newTodo);
@@ -52,9 +55,9 @@
         const li = document.createElement("li");
         li.setAttribute("data-id", todo.id);
         li.innerHTML = `
-      <span>${todo.text}</span>
-      <button class="delete-btn" onclick="deleteTodo(${todo.id})">Delete</button>
-    `;
+        <span>${todo.text}</span>
+        <button class="delete-btn" onclick="deleteTodo(${todo.id})">Delete</button>
+      `;
         todoList.appendChild(li);
       }
 

@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movie Rating</title>
     <link rel="stylesheet" href="../styles/index.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
-   
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <nav>
@@ -28,13 +30,16 @@
     </div>
 
     <script>
-      const API_KEY = "b7fe2c24f174676b490b42de62837330"; 
-
       async function searchMovies() {
         const query = document.getElementById("movieInput").value.trim();
-        if (!query) return;
+        if (!query) {
+          alert("cannot search without text enter something");
+          return;
+        }
 
-        const url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${encodeURIComponent(query)}`;
+        const url = `https://api.themoviedb.org/3/search/movie?api_key=b7fe2c24f174676b490b42de62837330&query=${encodeURIComponent(
+          query
+        )}`;
 
         const res = await fetch(url);
         const data = await res.json();
@@ -48,11 +53,13 @@
           return;
         }
 
-        results.forEach((movie) => {
+        results.splice(0, 5).forEach((movie) => {
           const card = document.createElement("div");
           card.className = "movie-card";
           card.innerHTML = `
-            <img class='mov-img' src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}" 
+            <img class='mov-img' src="https://image.tmdb.org/t/p/w500${
+              movie.poster_path
+            }" alt="${movie.title}" 
                  onerror="this.src='https://via.placeholder.com/200x300?text=No+Image';">
             <h4>${movie.title}</h4>
             <span>Rating: ${movie.vote_average || "N/A"}/10</span>
