@@ -1,4 +1,4 @@
-#  Internship Task Repository
+# Internship Task Repository
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](#contributing)
@@ -10,4 +10,4 @@
 
 To Check Any Of Task Live Just Replace The Date In URL To Desired Task It will be the live url to that task.
 
-<h1>https://celestial00.github.io/Verior-intenrship/SheerazAli_23_june/index.html</h1>
+<h1>https://celestial00.github.io/Verior-intenrship/</h1>
