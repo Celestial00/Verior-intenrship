@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://yourname.github.io/my-react-app",
+  "homepage": "https://celestial00.github.io/my-react-app",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
