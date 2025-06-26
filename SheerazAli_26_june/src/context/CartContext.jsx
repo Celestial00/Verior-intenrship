@@ -18,8 +18,8 @@ export default function CartProvider({ children }) {
     alert("Item Added");
   };
 
-  const DeleteItem = (item) => {
-    setCart(cart.filter((item) => item === item));
+  const DeleteItem = (Item) => {
+    setCart(cart.filter((item) => item === Item));
   };
 
   return (
