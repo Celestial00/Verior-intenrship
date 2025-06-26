@@ -8,6 +8,6 @@
 
 ---
 
-Task Will Live Until I Complete Text Github Won't Allow Multiple React Web App's
+Task Will be Live Until I Complete Next Provided Task Github Won't Allow Multiple React Web App's
 
 <h1>https://celestial00.github.io/Verior-intenrship/</h1>
