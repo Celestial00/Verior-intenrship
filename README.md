@@ -8,6 +8,6 @@
 
 ---
 
-To Check Any Of Task Live Just Replace The Date In URL To Desired Task It will be the live url to that task.
+Task Will Live Until I Complete Text Github Won't Allow Multiple React Web Apps
 
 <h1>https://celestial00.github.io/Verior-intenrship/</h1>
