@@ -19,7 +19,7 @@ export default function CartProvider({ children }) {
   };
 
   const DeleteItem = (item) => {
-    setCart(cart.filter((item) => item !== item));
+    setCart(cart.filter((item) => item === item));
   };
 
   return (
