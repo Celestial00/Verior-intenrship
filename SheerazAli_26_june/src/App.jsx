@@ -7,7 +7,7 @@ import Quiz from "./pages/Quiz";
 function App() {
   return (
     <>
-      <Router>
+      <Router basename="/Verior-intenrship">
         <Routes>
           <Route element={<Mainlayout />}>
             <Route path="/" element={<Home />}></Route>
