@@ -18,9 +18,9 @@ export default function CartProvider({ children }) {
     alert("Item Added");
   };
 
-  const DeleteItem = (Item) => {
-    setCart(cart.filter((item) => item === Item));
-  };
+  const DeleteItem = (itemToDelete) => {
+  setCart(cart.filter((item) => item !== itemToDelete));
+};
 
   return (
     <CartContext.Provider value={{ cart, AddItem, DeleteItem }}>
