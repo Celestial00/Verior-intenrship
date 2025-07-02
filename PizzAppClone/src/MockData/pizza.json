@@ -1,0 +1,82 @@
+[
+  {
+    "id": "PZ1001",
+    "name": "Margherita",
+    "price": 7.99,
+    "description": "Classic pizza with tomato sauce, mozzarella, and fresh basil.",
+    "image": "https://images.unsplash.com/photo-1601924582975-4aa3f3c3d021?auto=format&fit=crop&w=800&q=80",
+    "quantity": 3
+  },
+  {
+    "id": "PZ1002",
+    "name": "Pepperoni Feast",
+    "price": 9.49,
+    "description": "Loaded with spicy pepperoni and extra mozzarella cheese.",
+    "image": "https://images.unsplash.com/photo-1606756797284-3c9243f3b1d7?auto=format&fit=crop&w=800&q=80",
+    "quantity": 1
+  },
+  {
+    "id": "PZ1003",
+    "name": "BBQ Chicken",
+    "price": 10.99,
+    "description": "Grilled chicken, tangy BBQ sauce, red onions, and cheddar.",
+    "image": "https://images.unsplash.com/photo-1600628422019-2f6342a3c633?auto=format&fit=crop&w=800&q=80",
+    "quantity": 3
+  },
+  {
+    "id": "PZ1004",
+    "name": "Veggie Delight",
+    "price": 8.99,
+    "description": "Mushrooms, bell peppers, black olives, onions, and sweetcorn.",
+    "image": "https://images.unsplash.com/photo-1594007654729-407eedc4be49?auto=format&fit=crop&w=800&q=80",
+    "quantity": 0
+  },
+  {
+    "id": "PZ1005",
+    "name": "Meat Lovers",
+    "price": 11.49,
+    "description": "Pepperoni, sausage, beef, and bacon on a cheesy base.",
+    "image": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=800&q=80",
+    "quantity": 0
+  },
+  {
+    "id": "PZ1006",
+    "name": "Hawaiian",
+    "price": 9.29,
+    "description": "Ham and pineapple with mozzarella on a tomato base.",
+    "image": "https://images.unsplash.com/photo-1627494966634-640d95be2f0a?auto=format&fit=crop&w=800&q=80",
+    "quantity": 1
+  },
+  {
+    "id": "PZ1007",
+    "name": "Cheese Explosion",
+    "price": 8.79,
+    "description": "Four-cheese blend of mozzarella, cheddar, parmesan, and feta.",
+    "image": "https://images.unsplash.com/photo-1594007654734-72bcb1b3c45b?auto=format&fit=crop&w=800&q=80",
+    "quantity": 4
+  },
+  {
+    "id": "PZ1008",
+    "name": "Spicy Paneer",
+    "price": 9.99,
+    "description": "Indian-style paneer, jalapeños, onions, and chili flakes.",
+    "image": "https://images.unsplash.com/photo-1662236913095-17c65256f6bc?auto=format&fit=crop&w=800&q=80",
+    "quantity": 0
+  },
+  {
+    "id": "PZ1009",
+    "name": "Tandoori Chicken",
+    "price": 10.49,
+    "description": "Spicy tandoori chicken, red onions, green peppers, and mint mayo.",
+    "image": "https://images.unsplash.com/photo-1576158114259-0a5a3f5945e6?auto=format&fit=crop&w=800&q=80",
+    "quantity": 3
+  },
+  {
+    "id": "PZ1010",
+    "name": "Truffle Mushroom",
+    "price": 12.99,
+    "description": "Creamy white sauce, truffle oil, and wild mushrooms.",
+    "image": "https://images.unsplash.com/photo-1612874742649-1e9bceec68e9?auto=format&fit=crop&w=800&q=80",
+    "quantity": 7
+  }
+]
