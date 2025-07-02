@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
-import OrderConfirmation from "./Pages/OrderConfirmation";
 
 const Menu = lazy(() => import("./Pages/Menu"));
 const Login = lazy(() => import("./Pages/Login"));
@@ -8,7 +7,6 @@ const Form = lazy(() => import("./Pages/Form"));
 const Order = lazy(() => import("./Pages/Order"));
 const Cart = lazy(() => import("./Pages/Cart"));
 const Mainlayout = lazy(() => import("./Layout/Mainlayout"));
-const OrderConformation = lazy(() => import("./Pages/OrderConfirmation"));
 
 export default function App() {
   return (
@@ -44,13 +42,9 @@ export default function App() {
             <Route element={<Mainlayout />}>
               <Route path="/" element={<Login />} />
               <Route path="/menu" element={<Menu />} />
-              <Route path="/Form" element={<Form />} />
-              <Route path="/Order" element={<Order />} />
+              <Route path="/form" element={<Form />} />
+              <Route path="/Order/:id" element={<Order />} />
               <Route path="/Cart" element={<Cart />} />
-              <Route
-                path="/confirmation"
-                element={<OrderConfirmation />}
-              />
             </Route>
           </Routes>
         </Suspense>

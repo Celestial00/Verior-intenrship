@@ -1,119 +1,109 @@
 import React from "react";
-import { useUser } from "../Context/UserContext";
-import { useNavigate } from "react-router-dom"; // ✅ ADD THIS
+import { useUser } from "../Context/UserContext"; 
+import { Link } from "react-router-dom";
 
-export default function Cart() {
+export default function CartPage() {
   const {
-    getData,
-    increaseQuantity,
-    decreaseQuantity,
-    deleteFromCart,
-    setDataFromUser,
+    cart,
+    IncreaseQuantity,
+    DecreaseQuantity,
+    RemoveFromCart,
+    GetName,
+    setCart,
   } = useUser();
 
-  const navigate = useNavigate(); // ✅ INIT HERE
-
-  const cart = getData().cart || [];
-  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-  const totalPrice = cart.reduce(
-    (sum, item) => sum + item.quantity * item.price,
-    0
-  );
-
-  const handleClearCart = () => {
-    const existing = getData();
-    setDataFromUser(existing.name); // resets cart & order with same name
+  const clearCart = () => {
+    setCart([]);
   };
 
-  const handleOrder = () => {
-    navigate("/order");
-  };
+  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
-  if (cart.length === 0) {
+
+  if (cart.length < 1) {
     return (
-      <div className="p-10 text-center text-xl text-stone-600">
-        Your cart is empty 😢
+      <div className="max-w-2xl mx-auto px-6 py-8 text-stone-800 min-h-screen">
+        <Link
+          to="/menu"
+          className="text-sm text-blue-500 hover:underline mb-4 inline-block"
+        >
+          &larr; Back to menu
+        </Link>
+        <h1 className="text-lg font-semibold">
+          Your cart is still empty. Start adding some pizzas :)
+        </h1>
       </div>
     );
   }
 
   return (
-    <div className="p-6 max-w-4xl mx-auto">
-      <h1 className="text-2xl font-bold mb-6">🛒 Your Cart</h1>
+    <div className="max-w-2xl mx-auto px-6 py-8 text-stone-800 min-h-screen">
+      <Link
+        to="/menu"
+        className="text-sm text-blue-500 hover:underline mb-4 inline-block"
+      >
+        &larr; Back to menu
+      </Link>
 
-      <ul className="space-y-6">
+      <h2 className="text-xl font-semibold mb-6">Your cart, {GetName()}</h2>
+
+      <ul className="space-y-4 mb-8">
         {cart.map((item) => (
           <li
             key={item.id}
-            className="flex items-center justify-between border-b pb-4"
+            className="flex justify-between items-center border-b pb-3"
           >
-            <div className="flex items-center gap-4">
-              <img
-                src={item.image || "https://via.placeholder.com/100"}
-                alt={item.name}
-                className="w-20 h-20 object-cover rounded"
-              />
-              <div>
-                <p className="font-semibold">{item.name}</p>
-                <p className="text-sm italic text-stone-500">
-                  {item.description}
-                </p>
-                <p className="text-sm text-stone-600">
-                  Price: ${item.price.toFixed(2)}
-                </p>
-              </div>
+            <div className="flex flex-col">
+              <span className="font-semibold">
+                {item.quantity}× {item.name}
+              </span>
+              <span className="text-gray-600 font-medium text-sm mt-0.5">
+                €{(item.price * item.quantity).toFixed(2)}
+              </span>
             </div>
 
             <div className="flex items-center gap-3">
               <button
-                onClick={() => decreaseQuantity(item.id)}
-                className="px-2 py-1 rounded-full bg-yellow-300 text-stone-800 font-bold"
+                onClick={() => DecreaseQuantity(item.id)}
+                className="text-sm rounded-full bg-yellow-400 font-semibold text-black px-3 py-1 hover:bg-yellow-300 focus:outline-none"
               >
                 -
               </button>
-              <span className="font-semibold">{item.quantity}</span>
+              <span className="text-sm font-medium">{item.quantity}</span>
               <button
-                onClick={() => increaseQuantity(item.id)}
-                className="px-2 py-1 rounded-full bg-yellow-300 text-stone-800 font-bold"
+                onClick={() => IncreaseQuantity(item.id)}
+                className="text-sm rounded-full bg-yellow-400 font-semibold text-black px-3 py-1 hover:bg-yellow-300 focus:outline-none"
               >
                 +
               </button>
               <button
-                onClick={() => deleteFromCart(item.id)}
-                className="ml-4 px-3 py-1 rounded-full bg-red-500 text-white text-sm"
+                onClick={() => RemoveFromCart(item.id)}
+                className="text-sm rounded-full bg-yellow-400 font-semibold text-black px-4 py-1 hover:bg-yellow-300 focus:outline-none"
               >
-                Remove
+                DELETE
               </button>
             </div>
           </li>
         ))}
       </ul>
 
-      <div className="mt-10 border-t pt-6 text-right">
-        <p className="text-lg font-semibold mb-2">
-          Total Items: <span className="text-stone-700">{totalItems}</span>
-        </p>
-        <p className="text-lg font-semibold">
-          Total Price:{" "}
-          <span className="text-green-600">${totalPrice.toFixed(2)}</span>
-        </p>
-
-        <div className="mt-6 flex justify-end gap-4">
-          <button
-            onClick={handleClearCart}
-            className="bg-red-500 text-white font-semibold px-6 py-2 rounded-full hover:bg-red-600 transition"
-          >
-            Clear Cart
-          </button>
-          <button
-            onClick={handleOrder}
-            className="bg-yellow-400 text-stone-800 font-semibold px-6 py-2 rounded-full hover:bg-yellow-300 transition"
-          >
+      <div className="flex items-center gap-4 mt-8">
+        <Link to="/form">
+          <button className="bg-yellow-400 text-stone-800 font-bold px-6 py-3 rounded-full text-sm tracking-wide uppercase hover:bg-yellow-300 focus:outline-none">
             Order Pizzas
           </button>
-        </div>
+        </Link>
+
+        <button
+          onClick={clearCart}
+          className="bg-gray-100 text-gray-400 font-bold px-6 py-3 rounded-full text-sm tracking-wide uppercase cursor-pointer"
+        >
+          Clear Cart
+        </button>
+      </div>
+
+      <div className="text-right font-semibold text-lg mt-6">
+        Total: €{total.toFixed(2)}
       </div>
     </div>
   );
 }
-``;

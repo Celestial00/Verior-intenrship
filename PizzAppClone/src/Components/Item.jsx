@@ -1,16 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useUser } from "../Context/UserContext";
 
 export default function Item({ data }) {
   const {
-    getData,
-    addToCart,
-    increaseQuantity,
-    decreaseQuantity,
-    deleteFromCart,
+    NotInCart,
+    AddToCart,
+    GetFromCart,
+    cart,
+    IncreaseQuantity,
+    DecreaseQuantity,
+    getItemQuantity,
+    RemoveFromCart,
   } = useUser();
 
-  const cartItem = getData().cart.find((item) => item.id === data.id);
+  // const [quan, setQuan] = useState(getSingleItem(data.id));
+
+  const handleADD = () => {
+    AddToCart(data.name, data.price, data.id);
+  };
+
+  console.log(GetFromCart());
+  console.log(NotInCart());
 
   return (
     <li className="flex w-full py-2">
@@ -32,9 +42,11 @@ export default function Item({ data }) {
           </p>
 
           <div className="flex items-center gap-3 sm:gap-8">
-            {!cartItem ? (
+            {data.quantity < 1 ? (
+              " "
+            ) : NotInCart(data.id) && getItemQuantity(data.id) < 1 ? (
               <button
-                onClick={() => addToCart(data)}
+                onClick={handleADD}
                 className="inline-block rounded-full bg-yellow-400 font-semibold uppercase tracking-wide text-stone-800 duration-300 hover:bg-yellow-300 focus:outline-none focus:ring focus:ring-yellow-300 focus:ring-offset-2 px-4 py-2 md:px-5 md:py-2.5 text-xs"
               >
                 Add to cart
@@ -43,23 +55,23 @@ export default function Item({ data }) {
               <>
                 <div className="flex items-center gap-2 md:gap-3">
                   <button
-                    onClick={() => decreaseQuantity(data.id)}
+                    onClick={() => DecreaseQuantity(data.id)}
                     className="inline-block text-sm rounded-full bg-yellow-400 font-semibold uppercase tracking-wide text-stone-800 duration-300 hover:bg-yellow-300 focus:outline-none focus:ring focus:ring-yellow-300 focus:ring-offset-2 px-2.5 py-1 md:px-3.5 md:py-2"
                   >
                     -
                   </button>
                   <span className="text-sm font-medium">
-                    {cartItem.quantity}
+                    {getItemQuantity(data.id)}
                   </span>
                   <button
-                    onClick={() => increaseQuantity(data.id)}
+                    onClick={() => IncreaseQuantity(data.id)}
                     className="inline-block text-sm rounded-full bg-yellow-400 font-semibold uppercase tracking-wide text-stone-800 duration-300 hover:bg-yellow-300 focus:outline-none focus:ring focus:ring-yellow-300 focus:ring-offset-2 px-2.5 py-1 md:px-3.5 md:py-2"
                   >
                     +
                   </button>
                 </div>
                 <button
-                  onClick={() => deleteFromCart(data.id)}
+                  onClick={() => RemoveFromCart(data.id)}
                   className="inline-block text-sm rounded-full bg-yellow-400 font-semibold uppercase tracking-wide text-stone-800 duration-300 hover:bg-yellow-300 focus:outline-none focus:ring focus:ring-yellow-300 focus:ring-offset-2 px-4 py-2 md:px-5 md:py-2.5"
                 >
                   Delete

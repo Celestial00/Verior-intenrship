@@ -3,17 +3,20 @@ import { useUser } from "../Context/UserContext";
 import { useNavigate } from "react-router-dom";
 
 export default function Footer() {
-  const { getData } = useUser();
+  const { cart } = useUser();
   const navigate = useNavigate();
 
-  const cart = getData().cart || [];
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const totalPrice = cart.reduce(
+    (sum, item) => item.price * item.quantity + sum,
+    0
+  );
 
   if (totalItems === 0) return null;
 
   return (
     <footer className="fixed bottom-0 left-0 w-full shadow-md flex items-center justify-between bg-stone-800 px-4 py-4 text-sm uppercase text-stone-200 sm:px-6 md:text-base">
-      <span>🛒 Ready to checkout?</span>
+      <span>Price: {totalPrice} </span>
 
       <div className="flex items-center gap-4">
         <span className="font-semibold">

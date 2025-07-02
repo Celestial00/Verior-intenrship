@@ -5,8 +5,8 @@ import { useNavigate } from "react-router-dom";
 export default function Login() {
   const [data, setData] = useState("");
   const [isEmpty, setEmpty] = useState(true);
-  const { setDataFromUser } = useUser() || {}; // ✅ use custom hook
-  const nav = useNavigate();
+  const { AddName, GetName } = useUser();
+  const Nav = useNavigate();
 
   const handleInput = (e) => {
     setData(e.target.value);
@@ -16,10 +16,9 @@ export default function Login() {
     setEmpty(data === "");
   }, [data]);
 
-  const HandleClick = () => {
-    console.log("Saving user:", data);
-    setDataFromUser(data); // ✅ Save to context and localStorage
-    nav("/menu");
+  const handleSubmit = () => {
+    AddName(data);
+    Nav("/menu");
   };
 
   return (
@@ -44,7 +43,7 @@ export default function Login() {
 
         {!isEmpty && (
           <button
-            onClick={HandleClick}
+            onClick={handleSubmit}
             className="mt-10 text-sm rounded-full bg-yellow-400 font-semibold uppercase tracking-wide text-stone-800 duration-300 hover:bg-yellow-300 focus:outline-none focus:ring focus:ring-yellow-300 focus:ring-offset-2 px-4 py-3 md:px-6 md:py-4"
           >
             Start ordering

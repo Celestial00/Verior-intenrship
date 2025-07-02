@@ -1,8 +1,8 @@
 import { useUser } from "../Context/UserContext";
 
 export default function Navbar() {
-  const { getData } = useUser();
-  const user = getData();
+  const { GetName } = useUser();
+  const name = GetName();
 
   return (
     <div className="flex justify-between items-center bg-yellow-400 p-3">
@@ -18,7 +18,7 @@ export default function Navbar() {
         />
       </div>
 
-      {user?.name && <div className="font-medium">👋 {user.name}</div>}
+      {name && <div className="font-medium">👋 {name}</div>}
     </div>
   );
 }
