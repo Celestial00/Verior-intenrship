@@ -6,11 +6,12 @@ export default function OrderStatus() {
   const { id } = useParams();
   const { orders, setOrders } = useUser();
   const [order, setOrder] = useState(null);
+  const [refreshKey, setRefreshKey] = useState(0); // Used to force re-render
 
   useEffect(() => {
     const found = orders.find((o) => o.randomid === id);
     setOrder(found);
-  }, [orders, id]);
+  }, [orders, id, refreshKey]);
 
   if (!order) {
     return (
@@ -30,8 +31,11 @@ export default function OrderStatus() {
 
   const makePriority = () => {
     setOrders((prev) =>
-      prev.map((o) => (o.randomid === id ? { ...o, Priority: true } : o))
+      prev.map((o) =>
+        o.randomid === id ? { ...o, Priority: true } : o
+      )
     );
+    setRefreshKey((prev) => prev + 1); // Triggers useEffect to run again
   };
 
   return (

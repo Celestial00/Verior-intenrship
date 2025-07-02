@@ -20,11 +20,12 @@ const UserProvider = ({ children }) => {
     return !cart.some((item) => item.id === id);
   }
 
-  function AddToCart(name, price, id) {
+  function AddToCart(name, price, id, description) {
     let NEW = {
       id,
       name,
       price,
+      description,
       quantity: 1,
     };
 
@@ -89,6 +90,7 @@ const UserProvider = ({ children }) => {
         RemoveFromCart,
         setCart,
         SET_Orders,
+        setOrders,
       }}
     >
       {children}

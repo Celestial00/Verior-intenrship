@@ -13,10 +13,10 @@ export default function Item({ data }) {
     RemoveFromCart,
   } = useUser();
 
-  // const [quan, setQuan] = useState(getSingleItem(data.id));
+  
 
   const handleADD = () => {
-    AddToCart(data.name, data.price, data.id);
+    AddToCart(data.name, data.price, data.id, data.description);
   };
 
   console.log(GetFromCart());
