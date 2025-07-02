@@ -39,15 +39,17 @@ export default function DashboardMain() {
           <h3 className="text-lg font-semibold mb-4">Product List</h3>
           <ul className="space-y-2 text-sm">
             <li className="flex justify-between border-b border-gray-300 dark:border-gray-600 pb-2">
-              T-shirt <span>$20</span>
+              shirt <span>$20</span>
             </li>
             <li className="flex justify-between border-b border-gray-300 dark:border-gray-600 pb-2">
-              Sneakers <span>$80</span>
+              shoes <span>$80</span>
             </li>
             <li className="flex justify-between border-b border-gray-300 dark:border-gray-600 pb-2">
               Watch <span>$120</span>
             </li>
-            <li className="flex justify-between">Backpack <span>$40</span></li>
+            <li className="flex justify-between">
+              Backpack <span>$40</span>
+            </li>
           </ul>
         </motion.div>
 
@@ -73,11 +75,7 @@ export default function DashboardMain() {
         transition={{ duration: 0.5, delay: 0.4 }}
       >
         <h3 className="text-lg font-semibold mb-4">Recent Activity</h3>
-        <ul className="space-y-2 text-sm text-gray-500 dark:text-gray-400">
-          <li>You added a new product "Headphones" - $60</li>
-          <li>Customer John Doe placed an order</li>
-          <li>Weekly report has been generated</li>
-        </ul>
+        <ul className="space-y-2 text-sm text-gray-500 dark:text-gray-400"></ul>
       </motion.div>
     </main>
   );
