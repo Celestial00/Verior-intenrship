@@ -6,9 +6,8 @@ export default function DashboardMain() {
         Here’s your analytic details
       </p>
 
-      {/* Grid layout for product list and chart */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-        {/* Product List */}
+     
         <div className="bg-gray-100 dark:bg-[#1e293b] p-4 rounded-lg shadow-md">
           <h3 className="text-lg font-semibold mb-4">Product List</h3>
           <ul className="space-y-2 text-sm">
@@ -25,7 +24,6 @@ export default function DashboardMain() {
           </ul>
         </div>
 
-        {/* Sales Chart (placeholder) */}
         <div className="bg-gray-100 dark:bg-[#1e293b] p-4 rounded-lg shadow-md">
           <h3 className="text-lg font-semibold mb-4">Sales Overview</h3>
           <div className="w-full h-40 bg-gray-200 dark:bg-[#334155] rounded flex items-center justify-center text-gray-500 dark:text-gray-400 text-sm">
@@ -34,7 +32,6 @@ export default function DashboardMain() {
         </div>
       </div>
 
-      {/* Additional content below */}
       <div className="bg-gray-100 dark:bg-[#1e293b] p-4 rounded-lg shadow-md">
         <h3 className="text-lg font-semibold mb-4">Recent Activity</h3>
         <ul className="space-y-2 text-sm text-gray-500 dark:text-gray-400">

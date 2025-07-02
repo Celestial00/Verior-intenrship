@@ -10,7 +10,6 @@ export default function Sidebar({ darkMode, toggleDarkMode }) {
 
   return (
     <>
-      {/* Toggle Button for Mobile */}
       <button
         className="md:hidden md:h-dvh fixed top-4 left-4 z-50 bg-white dark:bg-gray-800 p-2 rounded shadow"
         onClick={toggleSidebar}
@@ -18,7 +17,6 @@ export default function Sidebar({ darkMode, toggleDarkMode }) {
         {isOpen ? <HiOutlineX size={24} /> : <HiOutlineMenuAlt3 size={24} />}
       </button>
 
-      {/* Sidebar */}
       <aside
         className={`fixed top-0 left-0 h-dvh w-64 bg-white dark:bg-[#1e293b] p-4 flex flex-col justify-between text-black dark:text-white transform transition-transform duration-300 ease-in-out z-40 ${
           isOpen ? "translate-x-0" : "-translate-x-full"
