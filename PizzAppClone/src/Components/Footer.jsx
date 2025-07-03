@@ -16,7 +16,7 @@ export default function Footer() {
 
   return (
     <footer className="fixed bottom-0 left-0 w-full shadow-md flex items-center justify-between bg-stone-800 px-4 py-4 text-sm uppercase text-stone-200 sm:px-6 md:text-base">
-      <span>Price: {totalPrice} </span>
+      <span>Price: {totalPrice.toFixed(2)} </span>
 
       <div className="flex items-center gap-4">
         <span className="font-semibold">

@@ -6,7 +6,7 @@ export default function OrderStatus() {
   const { id } = useParams();
   const { orders, setOrders } = useUser();
   const [order, setOrder] = useState(null);
-  const [refreshKey, setRefreshKey] = useState(0); // Used to force re-render
+  const [refreshKey, setRefreshKey] = useState(0); 
 
   useEffect(() => {
     const found = orders.find((o) => o.randomid === id);
