@@ -9,7 +9,7 @@ const Navbar = ({ toggleSidebar }) => {
   });
 
   useEffect(() => {
-    document.body.classList[isDarkMode ? "add" : "remove"]("dark");
+    document.body.classList["add"]("dark");
     localStorage.setItem("darkMode", JSON.stringify(isDarkMode));
   }, [isDarkMode]);
 
