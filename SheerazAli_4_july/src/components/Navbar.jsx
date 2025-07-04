@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 const Navbar = ({ toggleSidebar }) => {
   const [isDarkMode, setIsDarkMode] = useState(() => {
     const savedMode = localStorage.getItem("darkMode");
-    return savedMode ? JSON.parse(savedMode) : false;
+    return savedMode ? JSON.parse(savedMode) : true;
   });
 
   useEffect(() => {
