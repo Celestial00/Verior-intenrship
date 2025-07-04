@@ -14,7 +14,7 @@ const Navbar = ({ toggleSidebar }) => {
   }, [isDarkMode]);
 
   return (
-    <header className="sticky top-0 z-10 bg-white dark:bg-[#0f0f0f]">
+    <header className="sticky top-0  z-10 bg-white dark:bg-[#0f0f0f]">
       <nav className="flex items-center justify-between py-2 pb-5 px-4">
         <HeaderLeftSection toggleSidebar={toggleSidebar} />
 

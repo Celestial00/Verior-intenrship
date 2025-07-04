@@ -48,13 +48,13 @@ const Sidebar = ({ toggleSidebar, isSidebarOpen }) => {
         isSidebarOpen
           ? "max-md:left-0 w-[280px] px-3"
           : "max-md:left-[-100%] w-0 px-0"
-      } max-md:absolute max-md:h-screen max-md:top-0 bg-white overflow-hidden z-30 dark:bg-[#0f0f0f] max-md:transition-all max-md:duration-200`}
+      } max-md:absolute max-md:h-screen max-md:top-0 bg-white overflow-hidden no-scrollbar z-30 dark:bg-[#0f0f0f] max-md:transition-all max-md:duration-200`}
     >
       <div className="md:hidden pb-5 pt-2 px-1 sticky top-0 bg-white dark:bg-neutral-900">
         <HeaderLeftSection toggleSidebar={toggleSidebar} />
       </div>
 
-      <div className="overflow-y-auto h-[calc(100vh-70px)] custom_scrollbar pb-6">
+      <div className="overflow-y-auto h-[calc(100vh-70px)] no-scrollbar pb-6">
         {sidebarLinks.map((category, catIndex) => (
           <div key={catIndex}>
             {category.categoryTitle && (
@@ -79,17 +79,17 @@ const Sidebar = ({ toggleSidebar, isSidebarOpen }) => {
           </div>
         ))}
 
-   <div className="h-[1px] my-2.5 bg-neutral-200 dark:bg-neutral-700"></div>
+        <div className="h-[1px] my-2.5 bg-neutral-200 dark:bg-neutral-700"></div>
         <div className=" ml-2 text-white text-[12px]">
           <p className="my-5">
             About Press Copyright Contact us Creators Advertise Developers
           </p>
 
           <p className="mb-5">
-            Terms PrivacyPolicy & Safety How YouTube worksTest new features 
+            Terms PrivacyPolicy & Safety How YouTube worksTest new features
           </p>
 
-          <p >© 2025 Google LLC</p>
+          <p>© 2025 Google LLC</p>
         </div>
       </div>
     </aside>

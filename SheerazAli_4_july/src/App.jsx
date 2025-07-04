@@ -17,7 +17,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="max-h-screen flex flex-col overflow-hidden dark:bg-[#0f0f0f]">
+    <div className="max-h-screen flex flex-col no-scrollbar dark:bg-[#0f0f0f]">
       <Navbar toggleSidebar={toggleSidebar} />
       <div className="flex overflow-auto">
         <Sidebar toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
@@ -30,11 +30,11 @@ export default function App() {
         ></div>
 
         <div
-          className={`w-full px-4 overflow-x-hidden custom_scrollbar ${
+          className={`w-full px-4 overflow-hidden no-scrollbar ${
             isSidebarOpen && "hide_thumb"
           }`}
         >
-          <div className="sticky bg-white top-0 z-10 pb-3 flex gap-3 overflow-y-auto no_scrollbar dark:bg-neutral-900">
+          <div className="sticky bg-white top-0 z-10 pb-3 flex gap-3 overflow-y-auto  no-scrollbar dark:bg-neutral-900">
             {categories.map((category) => (
               <CategoryPill key={category} category={category} />
             ))}
